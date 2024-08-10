@@ -6,7 +6,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from YTMUSIC import app
-from YTMUSIC.utils.YT_ban import admin_filter
+from YTMUSIC.utils.vip_ban import admin_filter
 from YTMUSIC.utils.database import get_assistant
 
 links = {}
