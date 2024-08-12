@@ -10,10 +10,10 @@ from pyrogram.types import (
     Message,
 )
 from config import LOGGER_ID as LOG_GROUP_ID
-from BABYMUSIC import app
-from BABYMUSIC.core.userbot import Userbot
-from BABYMUSIC.utils.database import delete_served_chat
-from BABYMUSIC.utils.database import get_assistant
+from YTMUSIC import app
+from YTMUSIC.core.userbot import Userbot
+from YTMUSIC.utils.database import delete_served_chat
+from YTMUSIC.utils.database import get_assistant
 
 
 photo = [
