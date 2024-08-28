@@ -198,9 +198,9 @@ stream_2 : "➲ <b>Sᴛᴀʀᴛᴇᴅ Sᴛʀᴇᴀᴍɪɴɢ |</b>\n\n<b>‣ Sᴛ
 
 
 
-CLOSE_BUTTON  : "𝐂ʟᴏsᴇ"
-CLOSEMENU_BUTTON  : "𝐂ʟᴏsᴇ"
-BACK_BUTTON : "𝐁ᴀᴄᴋ"
+CLOSE_BUTTON  : "• ᴄʟᴏsᴇ •"
+CLOSEMENU_BUTTON  : "• ᴄʟᴏsᴇ •"
+BACK_BUTTON : "• ʙᴀᴄᴋ •"
 
 S_B_1 : "• ᴧᴅᴅ мᴇ ʙᴧʙʏ •"
 S_B_2 : "• sᴜᴘᴘᴏꝛᴛ •"
