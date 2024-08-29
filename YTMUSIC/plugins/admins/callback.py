@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from YTMUSIC import YouTube, app, YTB
+from YTMUSIC import YouTube, app
 from YTMUSIC.core.call import YT
 from YTMUSIC.misc import SUDOERS, db
 from YTMUSIC.utils.database import (
