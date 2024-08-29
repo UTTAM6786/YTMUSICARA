@@ -29,7 +29,7 @@ def private_panel(_):
     else:
         if SUPPORT_CHANNEL:
             buttons.append(
-                [InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •"", url=f"{SUPPORT_CHANNEL}")]
+                [InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •", url=f"{SUPPORT_CHANNEL}")]
             )
         if SUPPORT_CHAT:
             buttons.append(
