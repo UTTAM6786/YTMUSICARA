@@ -1,7 +1,4 @@
 import asyncio
-import aiohttp
-import requests
-import httpx
 import os
 import re
 from typing import Union
@@ -11,10 +8,8 @@ from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from youtubesearchpython.__future__ import VideosSearch
 
-from YTMUSIC.utils.database import is_on_off
-from YTMUSIC.utils.formatters import time_to_seconds, download_file
-
-
+from SONALI.utils.database import is_on_off
+from SONALI.utils.formatters import time_to_seconds
 
 async def shell_cmd(cmd):
     proc = await asyncio.create_subprocess_shell(
@@ -29,31 +24,9 @@ async def shell_cmd(cmd):
         else:
             return errorz.decode("utf-8")
     return out.decode("utf-8")
-    
-# Netscape HTTP Cookie File
-# https://curl.haxx.se/rfc/cookie_spec.html
-# This is a generated file! Do not edit.
 
-.youtube.com	TRUE	/	TRUE	0	YSC	4ZlXDbi-LS4
-.youtube.com	TRUE	/	TRUE	1740396943	VISITOR_INFO1_LIVE	kDTLqKDC8sc
-.youtube.com	TRUE	/	TRUE	1740396943	VISITOR_PRIVACY_METADATA	CgJJThIEGgAgFw%3D%3D
-.youtube.com	TRUE	/	TRUE	1724846744	GPS	1
-.youtube.com	TRUE	/	TRUE	1756380988	__Secure-1PSIDTS	sidts-CjEBUFGohzWJmyJOT0ex6nBGDiMRoCCASOm1ABXkZbwXkPX1fGV1zNYiyqkK2-LX5qdcEAA
-.youtube.com	TRUE	/	TRUE	1756380988	__Secure-3PSIDTS	sidts-CjEBUFGohzWJmyJOT0ex6nBGDiMRoCCASOm1ABXkZbwXkPX1fGV1zNYiyqkK2-LX5qdcEAA
-.youtube.com	TRUE	/	FALSE	1787916988	HSID	A1cekU3FdmtWGML4c
-.youtube.com	TRUE	/	TRUE	1787916988	SSID	AR5884io3moBK6mBg
-.youtube.com	TRUE	/	FALSE	1787916988	APISID	60NLF9KM6AaPpMny/ATCSaMc9IBIo9mJTi
-.youtube.com	TRUE	/	TRUE	1787916988	SAPISID	MbvscBjneSu3S7Px/Aoik_JTK4AmGYn9hA
-.youtube.com	TRUE	/	TRUE	1787916988	__Secure-1PAPISID	MbvscBjneSu3S7Px/Aoik_JTK4AmGYn9hA
-.youtube.com	TRUE	/	TRUE	1787916988	__Secure-3PAPISID	MbvscBjneSu3S7Px/Aoik_JTK4AmGYn9hA
-.youtube.com	TRUE	/	FALSE	1787916988	SID	g.a000nQhoYNU7u5lW_DevWVjzDaNeduXmnFVvDCDU8-745s1k8AEMmLOAjbsjTK6pdKQhRFX_OQACgYKAb0SARISFQHGX2MiB6EpJKLqPYVuvvUFoMBYdRoVAUF8yKpK73HSj1mnaP34szI6VUmz0076
-.youtube.com	TRUE	/	TRUE	1787916988	__Secure-1PSID	g.a000nQhoYNU7u5lW_DevWVjzDaNeduXmnFVvDCDU8-745s1k8AEMIvIdqvOLM39Z3NgJ4clquwACgYKAYsSARISFQHGX2Miqm-3crnEJMPAu-KRtlVFpxoVAUF8yKpsU3bpihO8Hfa9dlt-ifl-0076
-.youtube.com	TRUE	/	TRUE	1787916988	__Secure-3PSID	g.a000nQhoYNU7u5lW_DevWVjzDaNeduXmnFVvDCDU8-745s1k8AEMayqDtbalOa6nAQR4Gpm3pgACgYKAZgSARISFQHGX2Mi__eyr8J3cnEPsBUjPQPcBhoVAUF8yKpFBMGqK9ZQidqJffnThFkD0076
-.youtube.com	TRUE	/	TRUE	1787916990	LOGIN_INFO	AFmmF2swRgIhANxFBw_7YM9L-12FXGwK2eyGFhnHXdh2Gwr46IcXZ-U0AiEA5XvgbovHloPwrMlxYOK_rXyGiOyWccm-mjGlC81-8oc:QUQ3MjNmdzY1alY4SnFGcWhYMzJQOFE5T2pQdHdGdk01V3pSSERMa1ZvemVDTlhxWm1pWDd6d3NWLUFBTE9HcEY0NDRmeHdrQWtCWjcyRWRuOWdZWGNxRmR1SU12QmdjT2xrVzVjTjJxWFJicnZjY1kxMU1jWjlrSk5iWHVYRjh3b1g5bDVzdGpra0RHNlU2N01mb0prZDkwZ3ExY0o1aHV3
-.youtube.com	TRUE	/	TRUE	1787916989	PREF	f6=40000000&tz=Asia.Kolkata
-.youtube.com	TRUE	/	FALSE	1756380994	SIDCC	AKEyXzU9YrVZY3jbcRONvWq-stEPY2XVG4OUQJG_9d20kRjRfKYgBpd8yVI_5_gofOD5_eigPw
-.youtube.com	TRUE	/	TRUE	1756380994	__Secure-1PSIDCC	AKEyXzU3WcCim1vsfFV22udm99XB3JGcTN7tlDO2AQXvDSLi5ueV6E1yXWnnKzPKwHAKK0Rs
-.youtube.com	TRUE	/	TRUE	1756380994	__Secure-3PSIDCC	AKEyXzXXAPLT_tffN-xdVkFBAT7iVGNlAJV4lTui_ZyM020PLD3PuNra1QTg9BVv4-XfhBphyw
+
+cookies_file = "SONALI/assets/cookies.txt"
 
 class YouTubeAPI:
     def __init__(self):
@@ -149,6 +122,7 @@ class YouTubeAPI:
             link = link.split("&")[0]
         proc = await asyncio.create_subprocess_exec(
             "yt-dlp",
+            "--cookies", cookies_file,
             "-g",
             "-f",
             "best[height<=?720][width<=?1280]",
@@ -168,7 +142,7 @@ class YouTubeAPI:
         if "&" in link:
             link = link.split("&")[0]
         playlist = await shell_cmd(
-            f"yt-dlp -i --get-id --flat-playlist --playlist-end {limit} --skip-download {link}"
+            f"yt-dlp --cookies {cookies_file} -i --get-id --flat-playlist --playlist-end {limit} --skip-download {link}"
         )
         try:
             result = playlist.split("\n")
@@ -205,7 +179,7 @@ class YouTubeAPI:
             link = self.base + link
         if "&" in link:
             link = link.split("&")[0]
-        ytdl_opts = {"quiet": True}
+        ytdl_opts = {"quiet": True, "cookiefile": cookies_file}
         ydl = yt_dlp.YoutubeDL(ytdl_opts)
         with ydl:
             formats_available = []
@@ -271,12 +245,13 @@ class YouTubeAPI:
 
         def audio_dl():
             ydl_optssx = {
-                "format": "bestaudio/[ext=m4a]",
+                "format": "bestaudio/best",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
+                "cookiefile": cookies_file,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
@@ -294,6 +269,7 @@ class YouTubeAPI:
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
+                "cookiefile": cookies_file,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
@@ -315,6 +291,7 @@ class YouTubeAPI:
                 "no_warnings": True,
                 "prefer_ffmpeg": True,
                 "merge_output_format": "mp4",
+                "cookiefile": cookies_file,  # Add cookie file option here
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
@@ -336,6 +313,7 @@ class YouTubeAPI:
                         "preferredquality": "192",
                     }
                 ],
+                "cookiefile": cookies_file,  # Add cookie file option here
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
@@ -355,6 +333,7 @@ class YouTubeAPI:
             else:
                 proc = await asyncio.create_subprocess_exec(
                     "yt-dlp",
+                    "--cookies", cookies_file,
                     "-g",
                     "-f",
                     "best[height<=?720][width<=?1280]",
@@ -372,87 +351,3 @@ class YouTubeAPI:
             direct = True
             downloaded_file = await loop.run_in_executor(None, audio_dl)
         return downloaded_file, direct
-
-class YTM:
-    def __init__(self):
-        self.base = "https://www.youtube.com/watch?v="
-        self.regex = r"(?:youtube\.com|youtu\.be)"
-        self.status = "https://www.youtube.com/oembed?url="
-        self.listbase = "https://youtube.com/playlist?list="
-        self.reg = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
-
-
-    async def download(
-        self,
-        link: str,
-        mystic,
-        video: Union[bool, str] = None,
-        videoid: Union[bool, str] = None,
-        songaudio: Union[bool, str] = None,
-        songvideo: Union[bool, str] = None,
-        format_id: Union[bool, str] = None,
-        title: Union[bool, str] = None,
-    ) -> str:
-        if videoid:
-            vidid =  link
-        else:
-            pattern = r"(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|live_stream\?stream_id=|(?:\/|\?|&)v=)?([^&\n]+)"
-            match = re.search(pattern, link)
-            vidid = match.group(1)
-        
-        async def download(url, format):
-            async with httpx.AsyncClient(http2=True) as client:
-                response = await client.get(url)
-                file_path = os.path.join("downloads", f"{vidid}.{format}")
-                with open(file_path, 'wb') as file:
-                    file.write(response.content)
-                return file_path
-             
-        
-        '''loop = asyncio.get_running_loop()
-        
-        if songvideo:
-            
-            return await loop.run_in_executor(None, download_file,vidid,False)
-            
-        elif songaudio:
-            return await loop.run_in_executor(None, download_file,vidid)
-            
-        
-        elif video:
-            direct = True
-            downloaded_file = await loop.run_in_executor(None, download_file,vidid,False)
-
-        
-        else:
-            direct = True
-            downloaded_file = await loop.run_in_executor(None, download_file,vidid)
-        
-        return downloaded_file, direct'''
- 
-        response =  requests.get(f"https://pipedapi-libre.kavin.rocks/streams/{vidid}").json()
-        loop = asyncio.get_running_loop()
-        
-        if songvideo:
-            
-            url = response.get("videoStreams", [])[-1]['url']
-            fpath = await loop.run_in_executor(None, lambda: asyncio.run(download(url, "mp4")))
-            return fpath
-            
-        elif songaudio:
-             return response.get("audioStreams", [])[4]["url"]  
-            
-        
-        elif video:
-            url = response.get("videoStreams", [])[-1]['url']
-            direct = True
-            downloaded_file = await loop.run_in_executor(None, lambda: asyncio.run(download(url, "mp4")))
-
-        
-        else:
-            direct = True
-            downloaded_file = response.get("audioStreams", [])[4]["url"]  
-        
-        return downloaded_file, direct
-       
-       
