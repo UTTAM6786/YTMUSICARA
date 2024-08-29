@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
-from YTMUSIC import YouTube, app, YTB
+from YTMUSIC import YouTube, app
 from YTMUSIC.core.call import YT
 from YTMUSIC.misc import db
 from YTMUSIC.utils.database import get_loop
