@@ -6,10 +6,10 @@ from YTMUSIC import app
 
 
 def help_pannel(_, START: Union[bool, int] = None):
-    first = [InlineKeyboardButton(text="𝐂ʟᴏsᴇ", callback_data=f"close")]
+    first = [InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close")]
     second = [
         InlineKeyboardButton(
-            text="𝐁ᴀᴄᴋ",
+            text="• ʙᴀᴄᴋ •",
             callback_data=f"settingsback_helper",
         ),
        
@@ -19,43 +19,43 @@ def help_pannel(_, START: Union[bool, int] = None):
         [
             [
                 InlineKeyboardButton(
-                    text="𝐀ᴄᴛɪᴠᴇ",
+                    text="• ᴀᴄᴛɪᴠᴇ •",
                     callback_data="help_callback hb1",
                 ),
                 InlineKeyboardButton(
-                    text="𝐀ᴅᴍɪɴ",
+                    text="• ᴀᴅᴍɪɴ •",
                     callback_data="help_callback hb2",
                 ),
                 InlineKeyboardButton(
-                    text="𝐀ᴜᴛʜ",
+                    text="• ᴀᴜᴛʜ •",
                     callback_data="help_callback hb3",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="𝐁ʟᴏᴄᴋ",
+                    text="• ʙʟᴏᴄᴋ •",
                     callback_data="help_callback hb4",
                 ),
                 InlineKeyboardButton(
-                    text="𝐁ᴏᴛ",
+                    text="• ʙᴏᴛ •",
                     callback_data="help_callback hb5",
                 ),
                 InlineKeyboardButton(
-                    text="𝐃ᴇᴠ",
+                    text="• ᴅᴇᴠ •",
                     callback_data="help_callback hb6",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="𝐆-ᴄᴀsᴛ",
+                    text="• ɢ-ᴄᴀsᴛ •",
                     callback_data="help_callback hb7",
                 ),
                 InlineKeyboardButton(
-                    text="𝐏-ʟɪsᴛ",
+                    text="• ᴘ-ʟɪsᴛ •",
                     callback_data="help_callback hb8",
                 ),
                 InlineKeyboardButton(
-                    text="𝐏ʟᴀʏ",
+                    text="• ᴘʟᴀʏ •",
                     callback_data="help_callback hb9",
                 ),
             ], 
@@ -70,10 +70,10 @@ def help_back_markup(_):
         [
             [
                 InlineKeyboardButton(
-                    text="𝐁ᴀᴄᴋ",
+                    text="• ʙᴀᴄᴋ •",
                     callback_data=f"settings_back_helper",
                 ),
-                InlineKeyboardButton(text="𝐂ʟᴏsᴇ", callback_data=f"close"),
+                InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close"),
             ],
         ]
     )
@@ -84,7 +84,7 @@ def private_help_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="𝐎ᴘᴇɴ ɪɴ ᴘʀɪᴠᴀᴛᴇ ", url=f"https://t.me/{app.username}?start=help"
+                text="• ᴏᴘᴇɴ ɪɴ ᴘʀɪᴠɪᴛᴇ •", url=f"https://t.me/{app.username}?start=help"
             ),
         ],
     ]
