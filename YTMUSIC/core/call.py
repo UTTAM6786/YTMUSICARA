@@ -17,7 +17,7 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from YTMUSIC import LOGGER, YouTube, app, YTB
+from YTMUSIC import LOGGER, YouTube, app
 from YTMUSIC.misc import db
 from YTMUSIC.utils.database import (
     add_active_chat,
