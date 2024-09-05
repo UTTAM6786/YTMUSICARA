@@ -1,8 +1,8 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from BABYMUSIC import app
+from YTMUSIC import app
 from config import BOT_USERNAME
-from BABYMUSIC.utils.errors import capture_err
+from YTMUSIC.utils.errors import capture_err
 import httpx 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
