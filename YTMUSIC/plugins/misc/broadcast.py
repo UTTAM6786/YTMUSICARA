@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 
-from BrandrdXMusic import app
+from YTMUSIC import app
 from config import OWNER_ID
 from YTMUSIC.utils.database import (
     get_active_chats,
