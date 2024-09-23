@@ -71,7 +71,7 @@ async def helper_cb(client, CallbackQuery):
 async def helper_cb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = help_back_markup(_)
+    keyboard = help_back_markup2(_)
     if cb == "hb6":
         if CallbackQuery.from_user.id not in SUDOERS:
             return await CallbackQuery.answer(
