@@ -7,27 +7,45 @@ from config import SUPPORT_CHAT, SUPPORT_CHANNEL, OWNER_ID
 def start_panel(_):
     buttons = [
         [
-            InlineKeyboardButton(text="˹ sᴇᴛᴛɪɴɢ ˼", callback_data="settings_helper"),
+            InlineKeyboardButton(text="• sᴇᴛᴛɪɴɢ •", callback_data="settings_helper"),
         ],
         [
-            InlineKeyboardButton(text="˹ sᴜᴘᴘᴏꝛᴛ ˼", url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=config.SUPPORT_CHAT),
         ],
     ]
     return buttons
     
 def private_panel(_):
     buttons = [
+        [InlineKeyboardButton(text="• ʜᴏᴡ ᴛᴏ ᴜsᴇ? ᴄᴏᴍᴍᴀɴᴅ ᴍᴇɴᴜ •", callback_data="settings_back_helper")]
+    ]
+    if SUPPORT_CHANNEL and SUPPORT_CHAT:
+        buttons.append(
+            [
+                InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •", url=f"{SUPPORT_CHANNEL}"),
+                InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"{SUPPORT_CHAT}"),
+            ]
+        )
+    else:
+        if SUPPORT_CHANNEL:
+            buttons.append(
+                [InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •", url=f"{SUPPORT_CHANNEL}")]
+            )
+        if SUPPORT_CHAT:
+            buttons.append(
+                [InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"{SUPPORT_CHAT}")]
+            )
+    buttons.append(
         [
             InlineKeyboardButton(
-                text=_["ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ"],
+                text= "• ᴧᴅᴅ мᴇ ʙᴧʙʏ •",
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
-        ],
-        [InlineKeyboardButton(text=_["˹ ❍ᴡɴᴇꝛ ˼"], user_id=config.OWNER_ID),
-            InlineKeyboardButton(text=_["˹ ᴍᴏᴅᴇ ˼"], callback_data=f"ubot_cb"),
-        ],
+        ]
+    )
+    buttons.append(
         [
-            InlineKeyboardButton(text=_["˹ ᴧʙᴏᴜᴛ ˼"], callback_data=f"abot_cb"),
-        ],
-    ]
+            InlineKeyboardButton(text="• ❍ᴡɴᴇꝛ •", user_id=OWNER_ID),
+        ]
+    )
     return buttons
