@@ -9,6 +9,6 @@ class BUTTONS(object):
     UBUTTON = [[InlineKeyboardButton("˹ ᴍᴜsɪᴄ ˼", callback_data="settings_back_helper"),InlineKeyboardButton("˹ ᴛᴏᴏʟs ˼", callback_data=f"tbot_cb")],[InlineKeyboardButton("˹ ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ ˼", callback_data="cplus HELP_raid")],[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data=f"settingsback_helper"),
     ]]
 
-    TBUTTON = [[InlineKeyboardButton("˹ ᴀᴄᴛɪᴠᴇ ˼", callback_data="help_callback hb1"),InlineKeyboardButton("˹ ᴀᴜᴛʜ ˼", callback_data="help_callback hb3")],[InlineKeyboardButton("˹ ʙʟᴏᴄᴋ ˼", callback_data="help_callback hb4")],[InlineKeyboardButton("˹ ᴅᴇᴠ ˼", callback_data="help_callback hb6"),
-    InlineKeyboardButton("˹ ɢ-ᴄᴀsᴛ ˼", callback_data="help_callback hb7")],[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data=f"ubot_cb"),
+    TBUTTON = [[InlineKeyboardButton("˹ ᴀᴄᴛɪᴠᴇ ˼", callback_data="mplus hb1"),InlineKeyboardButton("˹ ᴀᴜᴛʜ ˼", callback_data="mplus hb3")],[InlineKeyboardButton("˹ ʙʟᴏᴄᴋ ˼", callback_data="mplus hb4")],[InlineKeyboardButton("˹ ᴅᴇᴠ ˼", callback_data="mplus hb6"),
+    InlineKeyboardButton("˹ ɢ-ᴄᴀsᴛ ˼", callback_data="mplus hb7")],[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data=f"ubot_cb"),
     ]]
