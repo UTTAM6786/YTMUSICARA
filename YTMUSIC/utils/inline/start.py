@@ -17,35 +17,17 @@ def start_panel(_):
     
 def private_panel(_):
     buttons = [
-        [InlineKeyboardButton(text="⌯ ʜᴏᴡ ᴛᴏ ᴜsᴇ? ᴄᴏᴍᴍᴀɴᴅ ᴍᴇɴᴜ ⌯", callback_data="settings_back_helper")]
-    ]
-    if SUPPORT_CHANNEL and SUPPORT_CHAT:
-        buttons.append(
-            [
-                InlineKeyboardButton(text="˹ ᴄʜᴀɴɴᴇʟ ˼", url=f"{SUPPORT_CHANNEL}"),
-                InlineKeyboardButton(text="˹ sᴜᴘᴘᴏꝛᴛ ˼", url=f"{SUPPORT_CHAT}"),
-            ]
-        )
-    else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [InlineKeyboardButton(text="˹ ᴄʜᴀɴɴᴇʟ ˼", url=f"{SUPPORT_CHANNEL}")]
-            )
-        if SUPPORT_CHAT:
-            buttons.append(
-                [InlineKeyboardButton(text="˹ sᴜᴘᴘᴏꝛᴛ ˼", url=f"{SUPPORT_CHAT}")]
-            )
-    buttons.append(
         [
             InlineKeyboardButton(
-                text= "⌯ ᴧᴅᴅ мᴇ ʙᴧʙʏ ⌯",
+                text=_["S_B_3"],
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
-        ]
-    )
-    buttons.append(
+        ],
+        [InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
+            InlineKeyboardButton(text=_["S_B_12"], callback_data=f"modebot_cb"),
+        ],
         [
-            InlineKeyboardButton(text="• ❍ᴡɴᴇꝛ •", user_id=OWNER_ID),
-        ]
-    )
+            InlineKeyboardButton(text=_["S_B_6"], callback_data=f"abot_cb"),
+        ],
+    ]
     return buttons
