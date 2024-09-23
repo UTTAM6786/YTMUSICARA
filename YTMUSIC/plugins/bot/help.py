@@ -12,7 +12,7 @@ from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 from YTMUSIC.misc import SUDOERS
 from YTMUSIC.utils.stuffs.buttons import BUTTONS
-from SONALI.utils.stuffs.helper import Helper
+from YTMUSIC.utils.stuffs.helper import Helper
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
