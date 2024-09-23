@@ -55,11 +55,11 @@ async def help_com_group(client, message: Message, _):
 
 @app.on_callback_query(filters.regex("abot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_22, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_B, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
 
 @app.on_callback_query(filters.regex("ubot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_23, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_U, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
 @languageCB
