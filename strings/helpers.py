@@ -1,3 +1,7 @@
+HELP_22 = """ HELLO MUSIC PARTERRGG"""
+
+HELP_23 = """ HELLO MUSIC PARTERRGG"""
+
 HELP_1 = """<b><u>Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Acᴛɪᴠᴇ:</u></b>
 
 <b>✧ /ac </b>- Cʜᴇᴄᴋ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs ᴏɴ ʙᴏᴛ.
