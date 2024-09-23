@@ -17,7 +17,7 @@ def start_panel(_):
     
 def private_panel(_):
     buttons = [
-        [InlineKeyboardButton(text="• ʜᴏᴡ ᴛᴏ ᴜsᴇ? ᴄᴏᴍᴍᴀɴᴅ ᴍᴇɴᴜ •", callback_data="settings_back_helper")]
+        [InlineKeyboardButton(text="• ʜᴏᴡ ᴛᴏ ᴜsᴇ? ᴄᴏᴍᴍᴀɴᴅ ᴍᴇɴᴜ •", callback_data=f"abot_cb")]
     ]
     if SUPPORT_CHANNEL and SUPPORT_CHAT:
         buttons.append(
