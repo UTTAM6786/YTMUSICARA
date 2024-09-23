@@ -1,5 +1,4 @@
 from pyrogram.types import InlineKeyboardButton
-
 import config
 from YTMUSIC import app
 from config import SUPPORT_CHAT, SUPPORT_CHANNEL, OWNER_ID
@@ -15,37 +14,23 @@ def start_panel(_):
     ]
     return buttons
     
-def private_panel(_):
-    buttons = [
-        [InlineKeyboardButton(text="• ʜᴏᴡ ᴛᴏ ᴜsᴇ? ᴄᴏᴍᴍᴀɴᴅ ᴍᴇɴᴜ •", callback_data=f"abot_cb")]
-    ]
-    if SUPPORT_CHANNEL and SUPPORT_CHAT:
+def private_panel(is_owner):
+    buttons = []
+    
+    buttons.append(
+        [InlineKeyboardButton(text="❖ ᴛᴧᴘ тᴏ sᴇᴇ ᴍᴧɢɪᴄ ❖", url=f"https://t.me/{app.username}?startgroup=true")]
+    )
+    
+    if is_owner:
         buttons.append(
             [
-                InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •", url=f"{SUPPORT_CHANNEL}"),
-                InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"{SUPPORT_CHAT}"),
+                InlineKeyboardButton(text="˹ ❍ᴡɴᴇꝛ ˼", user_id=OWNER_ID),
+                InlineKeyboardButton(text="˹ ᴍᴏᴅᴇ ˼", callback_data="ubot_cb"),
             ]
         )
     else:
-        if SUPPORT_CHANNEL:
-            buttons.append(
-                [InlineKeyboardButton(text="• ᴄʜᴀɴɴᴇʟ •", url=f"{SUPPORT_CHANNEL}")]
-            )
-        if SUPPORT_CHAT:
-            buttons.append(
-                [InlineKeyboardButton(text="• sᴜᴘᴘᴏꝛᴛ •", url=f"{SUPPORT_CHAT}")]
-            )
-    buttons.append(
-        [
-            InlineKeyboardButton(
-                text= "• ᴧᴅᴅ мᴇ ʙᴧʙʏ •",
-                url=f"https://t.me/{app.username}?startgroup=true",
-            )
-        ]
-    )
-    buttons.append(
-        [
-            InlineKeyboardButton(text="• ❍ᴡɴᴇꝛ •", user_id=OWNER_ID),
-        ]
-    )
+        buttons.append(
+            [InlineKeyboardButton(text="˹ ᴧʙᴏᴜᴛ ˼", url=SUPPORT_CHANNEL)]
+        )
+        
     return buttons
