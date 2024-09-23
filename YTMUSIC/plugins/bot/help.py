@@ -53,16 +53,6 @@ async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
     await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard))
 
-@app.on_callback_query(filters.regex('mplus'))      
-async def mb_plugin_button(client, CallbackQuery):
-    callback_data = CallbackQuery.data.strip()
-    cb = callback_data.split(None, 1)[1]
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data=f"tbot_cb")]])
-    if cb == "Okieeeeee":
-        await CallbackQuery.edit_message_text(f"`something errors`",reply_markup=keyboard,parse_mode=enums.ParseMode.MARKDOWN)
-    else:
-        await CallbackQuery.edit_message_text(getattr(Helper, cb), reply_markup=keyboard)
-
 
 @app.on_callback_query(filters.regex("abot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
