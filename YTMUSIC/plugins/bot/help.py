@@ -59,7 +59,7 @@ async def helper_cb(client, CallbackQuery):
 
 @app.on_callback_query(filters.regex("ubot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(Helper.HELP_U, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_B, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
 @languageCB
