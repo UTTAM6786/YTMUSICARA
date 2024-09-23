@@ -70,8 +70,8 @@ def help_back_markup(_):
         [
             [
                 InlineKeyboardButton(
-                    text="• ʙᴀᴄᴋ •",
-                    callback_data=f"settings_back_helper",
+                    text="↺ ʙᴧᴄᴋ ↻",
+                    callback_data=f"ubot_cb",
                 ),
                 InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close"),
             ],
