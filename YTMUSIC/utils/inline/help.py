@@ -9,8 +9,8 @@ def help_pannel(_, START: Union[bool, int] = None):
     first = [InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close")]
     second = [
         InlineKeyboardButton(
-            text="• ʙᴀᴄᴋ •",
-            callback_data=f"settingsback_helper",
+            text="↺ ʙᴧᴄᴋ ↻",
+            callback_data=f"ubot_cb",
         ),
        
     ]
