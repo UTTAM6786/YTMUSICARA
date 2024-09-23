@@ -56,6 +56,20 @@ def help_back_markup(_):
         ]
     )
     return upl
+    
+def help_back_markup2(_):
+    upl = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text="↺ ʙᴧᴄᴋ ↻",
+                    callback_data=f"tbot_cb",
+                ),
+                InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close"),
+            ],
+        ]
+    )
+    return upl
 
 
 def private_help_panel(_):
