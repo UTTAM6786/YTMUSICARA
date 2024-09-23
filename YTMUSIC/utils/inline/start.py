@@ -24,7 +24,7 @@ def private_panel(_):
             )
         ],
         [InlineKeyboardButton(text=_["˹ ❍ᴡɴᴇꝛ ˼"], user_id=config.OWNER_ID),
-            InlineKeyboardButton(text=_["˹ ᴍᴏᴅᴇ ˼"], callback_data=f"modebot_cb"),
+            InlineKeyboardButton(text=_["˹ ᴍᴏᴅᴇ ˼"], callback_data=f"ubot_cb"),
         ],
         [
             InlineKeyboardButton(text=_["˹ ᴧʙᴏᴜᴛ ˼"], callback_data=f"abot_cb"),
