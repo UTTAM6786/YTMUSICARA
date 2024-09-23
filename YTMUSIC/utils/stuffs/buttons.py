@@ -10,5 +10,5 @@ class BUTTONS(object):
     ]]
 
     TBUTTON = [[InlineKeyboardButton("˹ ᴀᴄᴛɪᴠᴇ ˼", callback_data="help_callback hb1"),InlineKeyboardButton("˹ ᴀᴜᴛʜ ˼", callback_data="help_callback hb3")],[InlineKeyboardButton("˹ ʙʟᴏᴄᴋ ˼", callback_data="help_callback hb4")],[InlineKeyboardButton("˹ ᴅᴇᴠ ˼", callback_data="help_callback hb6"),
-    InlineKeyboardButton("˹ ɢ-ᴄᴀsᴛ ˼", callback_data="help_callback hb7")],[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data="cplus HELP_raid"),
+    InlineKeyboardButton("˹ ɢ-ᴄᴀsᴛ ˼", callback_data="help_callback hb7")],[InlineKeyboardButton("↺ ʙᴧᴄᴋ ↻", callback_data=f"ubot_cb"),
     ]]
