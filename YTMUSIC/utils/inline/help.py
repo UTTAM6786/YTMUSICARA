@@ -49,7 +49,7 @@ def help_back_markup(_):
             [
                 InlineKeyboardButton(
                     text="↺ ʙᴧᴄᴋ ↻",
-                    callback_data=f"mbot_cb",
+                    callback_data=f"settings_back_helper",
                 ),
                 InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data=f"close"),
             ],
