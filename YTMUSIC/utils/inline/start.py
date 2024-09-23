@@ -30,7 +30,7 @@ def private_panel(is_owner):
         )
     else:
         buttons.append(
-            [InlineKeyboardButton(text="˹ ᴧʙᴏᴜᴛ ˼", url=SUPPORT_CHANNEL)]
+            [InlineKeyboardButton(text="˹ ᴧʙᴏᴜᴛ ˼", callback_data="ubot_cb")]
         )
         
     return buttons
