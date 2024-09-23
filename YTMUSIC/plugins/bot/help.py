@@ -12,6 +12,7 @@ from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 from YTMUSIC.misc import SUDOERS
 from YTMUSIC.utils.stuffs.buttons import BUTTONS
+from SONALI.utils.stuffs.helper import Helper
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
@@ -54,11 +55,11 @@ async def help_com_group(client, message: Message, _):
 
 @app.on_callback_query(filters.regex("abot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(helpers.HELP_22, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_22, reply_markup=InlineKeyboardMarkup(BUTTONS.ABUTTON))
 
 @app.on_callback_query(filters.regex("ubot_cb") & ~BANNED_USERS)
 async def helper_cb(client, CallbackQuery):
-    await CallbackQuery.edit_message_text(helpers.HELP_23, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
+    await CallbackQuery.edit_message_text(Helper.HELP_23, reply_markup=InlineKeyboardMarkup(BUTTONS.UBUTTON))
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
 @languageCB
