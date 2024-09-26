@@ -5,7 +5,7 @@ import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
-from SONALI import app
+from YTMUSIC import app
 from config import YOUTUBE_IMG_URL
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -139,9 +139,9 @@ async def get_thumb(videoid):
     background = enhancer.enhance(0.6)
     
     draw = ImageDraw.Draw(background)
-    arial = ImageFont.truetype("SONALI/assets/assets/font2.ttf", 30)
-    font = ImageFont.truetype("SONALI/assets/assets/font.ttf", 30)
-    title_font = ImageFont.truetype("SONALI/assets/assets/font3.ttf", 45)
+    arial = ImageFont.truetype("YTMUSIC/assets/assets/font2.ttf", 30)
+    font = ImageFont.truetype("YTMUSIC/assets/assets/font.ttf", 30)
+    title_font = ImageFont.truetype("YTMUSIC/assets/assets/font3.ttf", 45)
 
     # Add green border
     border_width = 20  # Set the width of the border
@@ -181,7 +181,7 @@ async def get_thumb(videoid):
     draw.text((text_x_position, 400), "00:00", (255, 255, 255), font=arial)
     draw.text((1080, 400), duration, (255, 255, 255), font=arial)
 
-    play_icons = Image.open("SONALI/assets/assets/BABYMUSICPNG.png")
+    play_icons = Image.open("YTMUSIC/assets/assets/BABYMUSICPNG.png")
     play_icons = play_icons.resize((620, 150))
     background.paste(play_icons, (text_x_position, 455), play_icons)
 
