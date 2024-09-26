@@ -8,6 +8,8 @@ ffmpeg-python
 future==0.18.3
 gitpython
 httpx[http2]
+youtube-search
+youtube-search-python
 heroku3
 hachoir
 motor==3.3.2
