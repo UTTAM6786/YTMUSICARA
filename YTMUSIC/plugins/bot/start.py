@@ -1,4 +1,5 @@
 import time
+import random
 from pyrogram import filters
 from pyrogram.errors import ChannelInvalid
 from YTMUSIC.plugins.play.playlist import del_plist_msg
@@ -27,6 +28,19 @@ from config import BANNED_USERS
 from strings import get_string
 
 
+
+UTTAM = [
+    "CAACAgQAAxkBAAEBkjVnBO53WGOSXzfJ8QwxRNEkqWZiWgACfgwAAiyOaFJpsWOnSgABrAgeBA",
+    "CAACAgQAAxkBAAEBkjVnBO53WGOSXzfJ8QwxRNEkqWZiWgACfgwAAiyOaFJpsWOnSgABrAgeBA",
+    "CAACAgQAAxkBAAEBkjVnBO53WGOSXzfJ8QwxRNEkqWZiWgACfgwAAiyOaFJpsWOnSgABrAgeBA",
+    "CAACAgQAAxkBAAEBkjVnBO53WGOSXzfJ8QwxRNEkqWZiWgACfgwAAiyOaFJpsWOnSgABrAgeBA",
+        ]
+
+async def delete_sticker_after_delay(message, delay):
+    await asyncio.sleep(delay)
+    await message.delete()
+        
+        
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
@@ -39,8 +53,9 @@ async def start_pm(client, message: Message, _):
 
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            return await message.reply_photo(
-                photo=config.START_IMG_URL,
+            sticker_message = await message.reply_sticker(sticker=random.choice(UTTAM))
+            asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+            return await message.reply_photo(photo=config.START_IMG_URL,
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
@@ -108,18 +123,31 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        await message.reply_photo(
-            photo=config.START_IMG_URL,
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
-            reply_markup=InlineKeyboardMarkup(out),
+        baby = await message.reply_text(f"**■□□□□□□□□□ 10%**")
+        await baby.edit_text(f"**■■□□□□□□□□ 30%**")
+        await baby.edit_text(f"**■■■□□□□□□□ 30%**")
+        await baby.edit_text(f"**■■■■□□□□□□ 30%**")
+        await baby.edit_text(f"**■■■■■□□□□□ 50%**")
+        await baby.edit_text(f"**■■■■■■□□□□ 30%**")
+        await baby.edit_text(f"**■■■■■■■□□□ 70%**")
+        await baby.edit_text(f"**■■■■■■■■□□ 30%**")
+        await baby.edit_text(f"**■■■■■■■■■□ 90%**")
+        await baby.edit_text(f"**■■■■■■■■■■ 100%**")
+        await baby.edit_text(f"**𝗟𝗲𝘁'𝘀 𝗚𝗼 𝗕𝗮𝗯𝘆..🌸**")
+        await baby.delete()
+        
+        sticker_message = await message.reply_sticker(sticker=random.choice(UTTAM))
+        asyncio.create_task(delete_sticker_after_delay(sticker_message, 5))
+        await message.reply_photo(photo=config.START_IMG_URL,
+        caption=_["start_2"].format(message.from_user.mention, app.mention),
+        reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
             return await app.send_message(
                 chat_id=config.LOGGER_ID,
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
-
-
+        
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
