@@ -6,12 +6,14 @@ import traceback
 from inspect import getfullargspec
 from io import StringIO
 from time import time
-from YTMUSIC.misc import SUDOERS
+
+
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from YTMUSIC import app
-
+from config import OWNER_ID
+###########
 
 async def aexec(code, client, message):
     exec(
@@ -28,10 +30,16 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @app.on_edited_message(
-    filters.command("eval") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("eval")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 @app.on_message(
-    filters.command("eval") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("eval")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 async def executor(client: app, message: Message):
     if len(message.command) < 2:
@@ -73,7 +81,7 @@ async def executor(client: app, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="⏳",
+                        text="ᴛɪᴍᴇ",
                         callback_data=f"runtime {t2-t1} Seconds",
                     )
                 ]
@@ -93,11 +101,11 @@ async def executor(client: app, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="⏳",
+                        text="ᴛɪᴍᴇ",
                         callback_data=f"runtime {round(t2-t1, 3)} Seconds",
                     ),
                     InlineKeyboardButton(
-                        text="🗑",
+                        text="ᴄʟᴏsᴇ",
                         callback_data=f"forceclose abc|{message.from_user.id}",
                     ),
                 ]
@@ -132,9 +140,17 @@ async def forceclose_command(_, CallbackQuery):
 
 
 @app.on_edited_message(
-    filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("sh")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
-@app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
+@app.on_message(
+    filters.command("sh")
+    & filters.user(OWNER_ID)
+    & ~filters.forwarded
+    & ~filters.via_bot
+)
 async def shellrunner(_, message: Message):
     if len(message.command) < 2:
         return await edit_or_reply(message, text="<b>ᴇxᴀᴍᴩʟᴇ :</b>\n/sh git pull")
